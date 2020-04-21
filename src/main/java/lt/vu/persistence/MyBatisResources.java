@@ -11,18 +11,15 @@ import java.io.IOException;
 
 @ApplicationScoped
 public class MyBatisResources {
-
     @Produces
     @ApplicationScoped
     @SessionFactoryProvider
     private SqlSessionFactory produceSqlSessionFactory() {
         try {
-            return new SqlSessionFactoryBuilder().build(
-                    Resources.getResourceAsStream("MyBatisConfig.xml")
-            );
-        } catch (IOException e) {
-            throw new RuntimeException("MyBatisResources.produceSqlSessionFactory(): ", e);
+            return new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream("MyBatisConfig.xml"));
+        }
+        catch (IOException exception) {
+            throw new RuntimeException("MyBatisResources.produceSqlSessionFactory(): ", exception);
         }
     }
 }
-

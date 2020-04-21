@@ -1,5 +1,6 @@
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ import java.util.List;
 })
 @Table(name = "TRIP")
 @Getter @Setter
+@EqualsAndHashCode
 public class Trip implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,18 +12,17 @@ import javax.persistence.SynchronizationType;
 
 @ApplicationScoped
 public class Resources {
-
     @PersistenceUnit
-    private EntityManagerFactory emf;
+    private EntityManagerFactory entityManagerFactory;
 
     @Produces
     @Default
     @RequestScoped
     private EntityManager createJTAEntityManager() {
-        return emf.createEntityManager(SynchronizationType.SYNCHRONIZED);
+        return entityManagerFactory.createEntityManager(SynchronizationType.SYNCHRONIZED);
     }
 
-    private void closeDefaultEntityManager(@Disposes @Default EntityManager em) {
-        em.close();
+    private void closeDefaultEntityManager(@Disposes @Default EntityManager entityManager) {
+        entityManager.close();
     }
 }

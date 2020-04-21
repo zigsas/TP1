@@ -1,5 +1,6 @@
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import java.util.List;
 })
 @Table(name = "LOCATION")
 @Getter @Setter
+@EqualsAndHashCode
 public class Location implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

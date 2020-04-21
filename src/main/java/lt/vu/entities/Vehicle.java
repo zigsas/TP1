@@ -1,5 +1,6 @@
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,14 +16,15 @@ import java.util.List;
 })
 @Table(name = "VEHICLE")
 @Getter @Setter
+@EqualsAndHashCode
 public class Vehicle implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Size(max = 6)
+    @Size(min = 6, max = 6)
     @Pattern(regexp = "^[A-Z]{3}[0-9]{3}$")
-    @Column(name = "LICENCE_PLATE")
+    @Column(name = "LICENCE_PLATE", nullable = false, unique = true)
     private String licencePlate;
 
     @OneToMany(mappedBy = "vehicle")

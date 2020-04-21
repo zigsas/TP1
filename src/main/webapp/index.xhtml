@@ -3,18 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
->
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head/>
 <h:body>
-    <h2>Teams:</h2>
+    <h2>Vehicles:</h2>
     <ol>
-        <ui:repeat value="#{teams.allTeams}" var="team">
-            <li><h:link value="#{team.name}" outcome="players?teamId=#{team.id}" /></li>
+        <ui:repeat value="#{vehicles.allVehicles}" var="vehicle">
+            <li>
+                <h:outputLabel value="#{vehicle.licencePlate}"/>
+            </li>
         </ui:repeat>
     </ol>
     <h:form>
-        <h:inputText value="#{teams.teamToCreate.name}" required="true" />
-        <h:commandButton value="Add new team" action="#{teams.createTeam}" />
+        <h:inputText a:placeholder="AAA000" value="#{vehicles.vehicle.licencePlate}" required="true"/>
+        <h:commandButton value="Add vehicle" action="#{vehicles.createVehicle}"/>
     </h:form>
     <h:link outcome="myBatis/teams" value="MyBatis implementation"/>
 </h:body>
