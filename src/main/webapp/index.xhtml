@@ -53,7 +53,7 @@
         <br/>
         <h:inputText a:placeholder="Destination" value="#{trips.trip.destination}" required="true"/>
         <br/>
-        <h:selectOneMenu value="#{trips.trip.vehicle}" converter="SelectTripConverter">
+        <h:selectOneMenu value="#{trips.trip.vehicle}" converter="SelectTripConverter" required="true">
             <f:selectItems value="#{trips.availableVehicles}" var="vehicle" itemLabel="#{vehicle.licencePlate}" itemValue="#{vehicle}"/>
         </h:selectOneMenu>
         <br/>
