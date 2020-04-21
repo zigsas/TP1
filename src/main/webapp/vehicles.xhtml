@@ -19,12 +19,12 @@
 
         <h:column>
             <f:facet name="header">Id</f:facet>
-            #{vehicle.id}
+            <h:outputLabel value="#{vehicle.id}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Licence plate</f:facet>
-            #{vehicle.licencePlate}
+            <h:outputLabel value="#{vehicle.licencePlate}"/>
         </h:column>
 
     </h:dataTable>

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Passenger.findAll", query = "SELECT p FROM Passenger AS p")
+        @NamedQuery(name = "Passenger.getAll", query = "SELECT p FROM Passenger AS p")
 })
 @Table(name = "PASSENGER")
 @Getter @Setter

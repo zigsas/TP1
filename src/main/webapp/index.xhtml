@@ -19,26 +19,27 @@
 
         <h:column>
             <f:facet name="header">Id</f:facet>
-            #{trip.id}
+            <h:outputLabel value="#{trip.id}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Origin</f:facet>
-            #{trip.origin}
+            <h:outputLabel value="#{trip.origin}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Destination</f:facet>
-            #{trip.destination}
+            <h:outputLabel value="#{trip.destination}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Vehicle</f:facet>
-            #{trip.vehicle.licencePlate}
+            <h:outputLabel value="#{trip.vehicle.licencePlate}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Passengers</f:facet>
+            <h:outputLabel value="#{trip.passengers.}"/>
             TODO
         </h:column>
 

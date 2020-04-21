@@ -17,7 +17,7 @@ public class TripsDAO {
     }
 
     public List<Trip> getAll() {
-        return entityManager.createNamedQuery("Trip.findAll", Trip.class).getResultList();
+        return entityManager.createNamedQuery("Trip.getAll", Trip.class).getResultList();
     }
 
     public Trip getById(Integer id) {
@@ -30,5 +30,9 @@ public class TripsDAO {
 
     public void delete(Trip trip) {
         entityManager.remove(trip);
+    }
+
+    public List<Trip> getAvailableForPassenger(Integer passengerId) {
+        return entityManager.createNamedQuery("Trip.getAvailableForPassenger", Trip.class).setParameter("passengerId", passengerId).getResultList();
     }
 }

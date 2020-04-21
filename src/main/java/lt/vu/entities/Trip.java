@@ -11,7 +11,8 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Trip.findAll", query = "SELECT t FROM Trip AS t")
+        @NamedQuery(name = "Trip.getAll", query = "SELECT t FROM Trip AS t"),
+        @NamedQuery(name = "Trip.getAvailableForPassenger", query = "SELECT t FROM Trip AS t WHERE :passengerId NOT IN (SELECT p.id FROM t.passengers AS p)")
 })
 @Table(name = "TRIP")
 @Getter @Setter

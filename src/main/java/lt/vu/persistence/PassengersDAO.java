@@ -17,7 +17,7 @@ public class PassengersDAO {
     }
 
     public List<Passenger> getAll() {
-        return entityManager.createNamedQuery("Passenger.findAll", Passenger.class).getResultList();
+        return entityManager.createNamedQuery("Passenger.getAll", Passenger.class).getResultList();
     }
 
     public Passenger getById(Integer id) {

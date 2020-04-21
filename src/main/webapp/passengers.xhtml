@@ -19,22 +19,22 @@
 
         <h:column>
             <f:facet name="header">Id</f:facet>
-            #{passenger.id}
+            <h:outputLabel value="#{passenger.id}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">First name</f:facet>
-            #{passenger.firstName}
+            <h:outputLabel value="#{passenger.firstName}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Last name</f:facet>
-            #{passenger.lastName}
+            <h:outputLabel value="#{passenger.lastName}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header"/>
-            <h:link outcome="passengerDetails" value="Details"/>
+            <h:link outcome="passengerDetails?passengerId=#{passenger.id}" value="Details"/>
         </h:column>
 
     </h:dataTable>

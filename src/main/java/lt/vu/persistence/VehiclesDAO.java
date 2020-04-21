@@ -17,7 +17,7 @@ public class VehiclesDAO {
     }
 
     public List<Vehicle> getAll() {
-        return entityManager.createNamedQuery("Vehicle.findAll", Vehicle.class).getResultList();
+        return entityManager.createNamedQuery("Vehicle.getAll", Vehicle.class).getResultList();
     }
 
     public Vehicle getById(Integer id) {
