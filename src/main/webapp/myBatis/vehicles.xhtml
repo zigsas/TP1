@@ -8,11 +8,11 @@
     <h:outputStylesheet library="css" name="tableStyle.css"/>
 </h:head>
 <h:body>
-    <h:link outcome="index" value="Trips"/>
-    <h:link outcome="passengers" value="Passengers"/>
-    <h:link outcome="myBatis/vehicles" value="Vehicles"/>
+    <h:link outcome="/index" value="Trips"/>
+    <h:link outcome="/passengers" value="Passengers"/>
+    <h:link outcome="/vehicles" value="Vehicles"/>
     <h2>Vehicles:</h2>
-    <h:dataTable value="#{vehicles.allVehicles}" var="vehicle"
+    <h:dataTable value="#{vehiclesMyBatis.allVehicles}" var="vehicle"
                  styleClass="order-table"
                  headerClass="order-table-header"
                  rowClasses="order-table-odd-row, order-table-even-row">
@@ -29,8 +29,8 @@
 
     </h:dataTable>
     <h:form>
-        <h:inputText a:placeholder="Licence plate" value="#{vehicles.vehicle.licencePlate}" required="true"/>
-        <h:commandButton value="Add vehicle" action="#{vehicles.createVehicle}"/>
+        <h:inputText a:placeholder="Licence plate" value="#{vehiclesMyBatis.vehicle.licencePlate}" required="true"/>
+        <h:commandButton value="Add vehicle" action="#{vehiclesMyBatis.createVehicle}"/>
     </h:form>
 </h:body>
 </html>
