@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <h:outputStylesheet library="css" name="tableStyle.css"/>
+</h:head>
+<h:body>
+    <h:link outcome="index" value="Trips"/>
+    <h:link outcome="passengers" value="Passengers"/>
+    <h:link outcome="vehicles" value="Vehicles"/>
+    <h2>Passengers:</h2>
+    <h:dataTable value="#{passengers.allPassengers}" var="passenger"
+                 styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row, order-table-even-row">
+
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            #{passenger.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">First name</f:facet>
+            #{passenger.firstName}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Last name</f:facet>
+            #{passenger.lastName}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header"/>
+            <h:link outcome="passengerDetails" value="Details"/>
+        </h:column>
+
+    </h:dataTable>
+
+    <h:form>
+        <h:inputText a:placeholder="First name" value="#{passengers.passenger.firstName}" required="true"/>
+        <h:inputText a:placeholder="Last name" value="#{passengers.passenger.lastName}" required="true"/>
+        <h:commandButton value="Add passenger" action="#{passengers.createPassenger}"/>
+    </h:form>
+</h:body>
+</html>

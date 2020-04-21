@@ -2,21 +2,55 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-<h:head/>
+<h:head>
+    <h:outputStylesheet library="css" name="tableStyle.css"/>
+</h:head>
 <h:body>
-    <h2>Vehicles:</h2>
-    <ol>
-        <ui:repeat value="#{vehicles.allVehicles}" var="vehicle">
-            <li>
-                <h:outputLabel value="#{vehicle.licencePlate}"/>
-            </li>
-        </ui:repeat>
-    </ol>
+    <h:link outcome="index" value="Trips"/>
+    <h:link outcome="passengers" value="Passengers"/>
+    <h:link outcome="vehicles" value="Vehicles"/>
+    <h2>Trips:</h2>
+    <h:dataTable value="#{trips.allTrips}" var="trip"
+                 styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row, order-table-even-row">
+
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            #{trip.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Origin</f:facet>
+            #{trip.origin}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Destination</f:facet>
+            #{trip.destination}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Vehicle</f:facet>
+            #{trip.vehicle.licencePlate}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Passengers</f:facet>
+            TODO
+        </h:column>
+
+    </h:dataTable>
+
     <h:form>
-        <h:inputText a:placeholder="AAA000" value="#{vehicles.vehicle.licencePlate}" required="true"/>
-        <h:commandButton value="Add vehicle" action="#{vehicles.createVehicle}"/>
+        <h:inputText a:placeholder="Origin" value="#{trips.trip.origin}" required="true"/>
+        <h:inputText a:placeholder="Destination" value="#{trips.trip.destination}" required="true"/>
+        <h:selectOneMenu value="#{trips.trip.vehicle}" converter="SelectTripConverter">
+            <f:selectItems value="#{trips.availableVehicles}" var="vehicle" itemLabel="#{vehicle.licencePlate}" itemValue="#{vehicle}"/>
+        </h:selectOneMenu>
+        <h:commandButton value="Add trip" action="#{trips.createTrip}"/>
     </h:form>
 </h:body>
 </html>
