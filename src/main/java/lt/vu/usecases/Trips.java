@@ -2,6 +2,7 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.entities.Passenger;
 import lt.vu.entities.Trip;
 import lt.vu.entities.Vehicle;
 import lt.vu.persistence.TripsDAO;
@@ -51,6 +52,18 @@ public class Trips {
     public String deleteTrip() {
         tripsDAO.delete(trip);
         return "index?faces-redirect=true";
+    }
+
+    public String passengersText(Trip trip) {
+        if (trip.getPassengers().isEmpty()) {
+            return "-";
+        }
+
+        String text = "";
+        for (Passenger passenger : trip.getPassengers()) {
+            text += passenger.getFirstName() + " " + passenger.getLastName() + ", ";
+        }
+        return text.substring(0, text.length() - 2);
     }
 
     private void loadAllTrips() {
