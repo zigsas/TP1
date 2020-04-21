@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,9 +21,13 @@ public class Trip implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "LOCATION_ID")
-    private Location location;
+    @Size(max = 50)
+    @Column(name = "ORIGIN")
+    private String origin;
+
+    @Size(max = 50)
+    @Column(name = "DESTINATION")
+    private String destination;
 
     @ManyToOne
     @JoinColumn(name = "VEHICLE_ID")
