@@ -9,7 +9,9 @@
 </h:head>
 <h:body>
     <h:link outcome="index" value="Trips"/>
+    <br/>
     <h:link outcome="passengers" value="Passengers"/>
+    <br/>
     <h:link outcome="vehicles" value="Vehicles"/>
     <h2>Trips:</h2>
     <h:dataTable value="#{trips.allTrips}" var="trip"
@@ -44,12 +46,17 @@
 
     </h:dataTable>
 
+    <br/>
+
     <h:form>
         <h:inputText a:placeholder="Origin" value="#{trips.trip.origin}" required="true"/>
+        <br/>
         <h:inputText a:placeholder="Destination" value="#{trips.trip.destination}" required="true"/>
+        <br/>
         <h:selectOneMenu value="#{trips.trip.vehicle}" converter="SelectTripConverter">
             <f:selectItems value="#{trips.availableVehicles}" var="vehicle" itemLabel="#{vehicle.licencePlate}" itemValue="#{vehicle}"/>
         </h:selectOneMenu>
+        <br/>
         <h:commandButton value="Add trip" action="#{trips.createTrip}"/>
     </h:form>
 </h:body>

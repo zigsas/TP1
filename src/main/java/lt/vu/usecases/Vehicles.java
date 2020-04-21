@@ -7,6 +7,8 @@ import lt.vu.persistence.VehiclesDAO;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -22,20 +24,36 @@ public class Vehicles {
     @Getter
     private List<Vehicle> allVehicles;
 
+    @Getter
+    private String errorMessage;
+
     @PostConstruct
     public void init() {
+        errorMessage = "";
         loadAllVehicles();
     }
 
     @Transactional
     public String createVehicle() {
-        vehiclesDAO.create(vehicle);
+        try {
+            vehiclesDAO.create(vehicle);
+        }
+        catch (Exception exception) {
+            errorMessage = "Vehicle with provided licence plate already exists!";
+            return null;
+        }
         return "vehicles?faces-redirect=true";
     }
 
     @Transactional
     public String updateVehicle() {
-        vehiclesDAO.update(vehicle);
+        try {
+            vehiclesDAO.update(vehicle);
+        }
+        catch (Exception exception) {
+            errorMessage = "Vehicle with provided licence plate already exists!";
+            return null;
+        }
         return "vehicles?faces-redirect=true";
     }
 

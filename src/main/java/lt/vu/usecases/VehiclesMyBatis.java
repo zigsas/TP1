@@ -22,6 +22,9 @@ public class VehiclesMyBatis {
     @Getter @Setter
     private Vehicle vehicle = new Vehicle();
 
+    @Getter
+    private String errorMessage;
+
     @PostConstruct
     public void init() {
         loadAllVehicles();
@@ -29,13 +32,25 @@ public class VehiclesMyBatis {
 
     @Transactional
     public String createVehicle() {
-        vehicleMapper.insert(vehicle);
+        try {
+            vehicleMapper.insert(vehicle);
+        }
+        catch (Exception exception) {
+            errorMessage = "Vehicle with provided licence plate already exists!";
+            return null;
+        }
         return "/myBatis/vehicles?faces-redirect=true";
     }
 
     @Transactional
     public String updateVehicle() {
-        vehicleMapper.updateByPrimaryKey(vehicle);
+        try {
+            vehicleMapper.updateByPrimaryKey(vehicle);
+        }
+        catch (Exception exception) {
+            errorMessage = "Vehicle with provided licence plate already exists!";
+            return null;
+        }
         return "/myBatis/vehicles?faces-redirect=true";
     }
 

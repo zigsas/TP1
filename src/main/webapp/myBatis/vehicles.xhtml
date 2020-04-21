@@ -9,7 +9,9 @@
 </h:head>
 <h:body>
     <h:link outcome="/index" value="Trips"/>
+    <br/>
     <h:link outcome="/passengers" value="Passengers"/>
+    <br/>
     <h:link outcome="/vehicles" value="Vehicles"/>
     <h2>Vehicles:</h2>
     <h:dataTable value="#{vehiclesMyBatis.allVehicles}" var="vehicle"
@@ -28,8 +30,12 @@
         </h:column>
 
     </h:dataTable>
+    <br/>
+    <h:outputLabel value="#{vehiclesMyBatis.errorMessage}"/>
+    <br/>
     <h:form>
         <h:inputText a:placeholder="Licence plate" value="#{vehiclesMyBatis.vehicle.licencePlate}" required="true"/>
+        <br/>
         <h:commandButton value="Add vehicle" action="#{vehiclesMyBatis.createVehicle}"/>
     </h:form>
 </h:body>

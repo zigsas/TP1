@@ -9,7 +9,9 @@
 </h:head>
 <h:body>
     <h:link outcome="index" value="Trips"/>
+    <br/>
     <h:link outcome="passengers" value="Passengers"/>
+    <br/>
     <h:link outcome="vehicles" value="Vehicles"/>
     <h2>Passengers:</h2>
     <h:dataTable value="#{passengers.allPassengers}" var="passenger"
@@ -39,9 +41,13 @@
 
     </h:dataTable>
 
+    <br/>
+
     <h:form>
         <h:inputText a:placeholder="First name" value="#{passengers.passenger.firstName}" required="true"/>
+        <br/>
         <h:inputText a:placeholder="Last name" value="#{passengers.passenger.lastName}" required="true"/>
+        <br/>
         <h:commandButton value="Add passenger" action="#{passengers.createPassenger}"/>
     </h:form>
 </h:body>

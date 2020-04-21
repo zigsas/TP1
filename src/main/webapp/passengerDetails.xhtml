@@ -8,7 +8,9 @@
 </h:head>
 <h:body>
     <h:link outcome="index" value="Trips"/>
+    <br/>
     <h:link outcome="passengers" value="Passengers"/>
+    <br/>
     <h:link outcome="vehicles" value="Vehicles"/>
     <h2>Trips for #{tripsForPassenger.passenger.firstName} #{tripsForPassenger.passenger.lastName}:</h2>
     <h:dataTable value="#{tripsForPassenger.passenger.trips}" var="trip"
