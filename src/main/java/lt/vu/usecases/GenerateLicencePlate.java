@@ -1,5 +1,6 @@
 package lt.vu.usecases;
 
+import lt.vu.interceptors.IMethodProgressLogger;
 import lt.vu.services.ILicencePlateGenerator;
 
 import javax.enterprise.context.SessionScoped;
@@ -15,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 @SessionScoped
 @Named
+@IMethodProgressLogger
 public class GenerateLicencePlate implements Serializable {
     @Inject
     ILicencePlateGenerator licencePlateGenerator;

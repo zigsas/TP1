@@ -1,5 +1,7 @@
 package lt.vu.services;
 
+import lt.vu.interceptors.IMethodProgressLogger;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 import java.io.Serializable;
@@ -9,6 +11,7 @@ import java.util.Random;
 @Alternative
 public class LithuanianLicencePlateGenerator implements Serializable, ILicencePlateGenerator {
     @Override
+    @IMethodProgressLogger
     public String generateLicencePlate() {
         try {
             Thread.sleep(3000); // Simulate intensive work

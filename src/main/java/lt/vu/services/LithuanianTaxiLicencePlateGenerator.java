@@ -1,13 +1,16 @@
 package lt.vu.services;
 
+import lt.vu.interceptors.IMethodProgressLogger;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Specializes;
 import java.util.Random;
 
-@Specializes
 @ApplicationScoped
+@Specializes
 public class LithuanianTaxiLicencePlateGenerator extends LithuanianLicencePlateGenerator {
     @Override
+    @IMethodProgressLogger
     public String generateLicencePlate() {
         try {
             Thread.sleep(3000); // Simulate intensive work

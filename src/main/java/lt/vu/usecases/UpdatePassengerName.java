@@ -3,6 +3,7 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Passenger;
+import lt.vu.interceptors.IMethodProgressLogger;
 import lt.vu.persistence.PassengersDAO;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +19,7 @@ import java.util.Map;
 @ViewScoped
 @Named
 @Getter @Setter
+@IMethodProgressLogger
 public class UpdatePassengerName implements Serializable {
     private Passenger passenger;
 
