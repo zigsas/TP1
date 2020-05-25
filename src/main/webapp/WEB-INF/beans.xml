@@ -7,6 +7,9 @@
     <interceptors>
         <class>lt.vu.interceptors.MethodProgressLogger</class>
     </interceptors>
+    <decorators>
+        <class>lt.vu.services.FormattedLicencePlateDecorator</class>
+    </decorators>
     <alternatives>
         <class>lt.vu.services.LithuanianLicencePlateGenerator</class>
     </alternatives>
