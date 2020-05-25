@@ -1,6 +1,6 @@
 package lt.vu.usecases;
 
-import lt.vu.services.LicencePlateGenerator;
+import lt.vu.services.ILicencePlateGenerator;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 @Named
 public class GenerateLicencePlate implements Serializable {
     @Inject
-    LicencePlateGenerator licencePlateGenerator;
+    ILicencePlateGenerator licencePlateGenerator;
 
     private CompletableFuture<String> licencePlateGenerationTask = null;
 

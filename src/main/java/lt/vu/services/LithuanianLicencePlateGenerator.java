@@ -1,11 +1,14 @@
 package lt.vu.services;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
 import java.io.Serializable;
 import java.util.Random;
 
 @ApplicationScoped
-public class LicencePlateGenerator implements Serializable {
+@Alternative
+public class LithuanianLicencePlateGenerator implements Serializable, ILicencePlateGenerator {
+    @Override
     public String generateLicencePlate() {
         try {
             Thread.sleep(3000); // Simulate intensive work
@@ -23,16 +26,17 @@ public class LicencePlateGenerator implements Serializable {
         int minNumber = 48; // numeral '0'
         int maxNumber = 57; // numeral '9'
 
-        int length = 3;
+        int lettersLength = 3;
+        int numbersLength = 3;
         Random random = new Random();
 
         String generatedLetters = random.ints(minLetter, maxLetter + 1)
-                .limit(length)
+                .limit(lettersLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
 
         String generatedNumbers = random.ints(minNumber, maxNumber + 1)
-                .limit(length)
+                .limit(numbersLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
 
