@@ -22,7 +22,6 @@ public class Vehicle implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Size(min = 6, max = 6)
     @Pattern(regexp = "^([A-Z]{3}-?[0-9]{3}|T-?[0-9]{5}|[A-Z]{2}-?[0-9]{4})$")
     @Column(name = "LICENCE_PLATE", nullable = false, unique = true)
     private String licencePlate;
