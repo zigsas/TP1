@@ -38,5 +38,11 @@
         <br/>
         <h:commandButton value="Add vehicle" action="#{vehicles.createVehicle}"/>
     </h:form>
+
+    <h:form>
+        <h:outputText value="#{generateLicencePlate.jerseyGenerationStatus}" />
+        <br/>
+        <h:commandButton value="Generate licence plate" disabled="#{generateLicencePlate.licencePlateGenerationRunning}" action="#{generateLicencePlate.generateNewJerseyNumber}"/>
+    </h:form>
 </h:body>
 </html>
