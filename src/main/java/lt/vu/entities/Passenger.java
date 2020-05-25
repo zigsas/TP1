@@ -32,6 +32,10 @@ public class Passenger implements Serializable {
     @ManyToMany(mappedBy = "passengers")
     private List<Trip> trips;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     public Passenger() {
     }
 }
