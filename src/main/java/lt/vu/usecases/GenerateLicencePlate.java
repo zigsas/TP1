@@ -32,7 +32,7 @@ public class GenerateLicencePlate implements Serializable {
         return licencePlateGenerationTask != null && !licencePlateGenerationTask.isDone();
     }
 
-    public String getJerseyGenerationStatus() throws ExecutionException, InterruptedException {
+    public String getLicencePlateGenerationStatus() throws ExecutionException, InterruptedException {
         if (licencePlateGenerationTask == null) {
             return null;
         } else if (isLicencePlateGenerationRunning()) {

@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+
 <h:head>
     <h:outputStylesheet library="css" name="tableStyle.css"/>
 </h:head>
@@ -40,9 +42,11 @@
     </h:form>
 
     <h:form>
-        <h:outputText value="#{generateLicencePlate.jerseyGenerationStatus}" />
+        <h:outputText id="randomLicencePlateOutput" value="#{generateLicencePlate.licencePlateGenerationStatus}" />
         <br/>
-        <h:commandButton value="Generate licence plate" disabled="#{generateLicencePlate.licencePlateGenerationRunning}" action="#{generateLicencePlate.generateNewJerseyNumber}"/>
+        <h:commandButton id="randomLicencePlateButton" value="Generate licence plate" disabled="#{generateLicencePlate.licencePlateGenerationRunning}" action="#{generateLicencePlate.generateNewJerseyNumber}"/>
+        <p:poll interval="3" update="randomLicencePlateOutput"/>
+        <p:poll interval="3" update="randomLicencePlateButton"/>
     </h:form>
 </h:body>
 </html>
